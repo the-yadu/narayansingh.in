@@ -18,6 +18,11 @@
   // Main entry point for the Worker
   "main": "dist/_worker.js/index.js",
 
+  // Build command for deployment
+  "build": {
+    "command": "npx astro build"
+  },
+
   // Observability settings
   "observability": {
     "enabled": true,
