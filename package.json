@@ -17,7 +17,6 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^12.6.0",
     "@astrojs/tailwind": "^6.0.2",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
