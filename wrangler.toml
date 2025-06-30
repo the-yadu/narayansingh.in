@@ -1,7 +1,6 @@
 name = "narayansingh-in"
-type = "javascript"
 account_id = "d98ec3be70dc07bbff99ac8bf526dbec"
 workers_dev = true
 route = "narayansingh.in/*"
-zone_id = "44cfc562d8dfb6fc7c8cd9c6b1219146"
 compatibility_date = "2025-06-30"
+main = "dist/_worker.js/index.js"
