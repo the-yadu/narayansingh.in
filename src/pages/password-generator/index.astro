@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PasswordGenerator from '../../components/PasswordGenerator.tsx';
+---
+
+<Layout>
+  <section class="max-w-xl mx-auto py-12">
+    <h1 class="text-3xl font-black mb-6">Password Generator</h1>
+    <PasswordGenerator client:load />
+  </section>
+</Layout>

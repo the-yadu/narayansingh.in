@@ -16,7 +16,7 @@
   "compatibility_date": "2025-06-30",
 
   // Main entry point for the Worker
-  "main": "dist/_worker.js/index.js",
+  "main": "dist/_worker.js",
 
   // Build command for deployment
   "build": {
@@ -27,8 +27,5 @@
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1
-  },
-  "assets": {
-    "directory": "./dist"
   }
 }

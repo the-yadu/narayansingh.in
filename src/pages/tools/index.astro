@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout>
+  <section class="max-w-4xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold mb-8 text-gray-900">All Tools</h1>
+    <div class="mb-8">
+      <input
+        id="tools-search"
+        type="text"
+        placeholder="Search tools..."
+        class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-lg shadow-sm bg-white"
+        oninput="filterTools(event)"
+        aria-label="Search tools"
+      />
+    </div>
+    <div id="tools-grid" class="grid gap-6 md:grid-cols-3">
+      <a href="/tools/random-name-picker" class="tool-card" data-name="random name picker" data-desc="pick a random name from a list">
+        <span class="text-2xl">🎲</span>
+        <span class="font-semibold">Random Name Picker</span>
+        <span class="text-xs text-gray-500">Pick a random name from a list</span>
+      </a>
+      <a href="/tools/color-palette-generator" class="tool-card" data-name="color palette generator" data-desc="generate beautiful color palettes">
+        <span class="text-2xl">🎨</span>
+        <span class="font-semibold">Color Palette Generator</span>
+        <span class="text-xs text-gray-500">Generate beautiful color palettes</span>
+      </a>
+      <a href="/tools/qr-code-generator" class="tool-card" data-name="qr code generator" data-desc="create qr codes for text or urls">
+        <span class="text-2xl">🔳</span>
+        <span class="font-semibold">QR Code Generator</span>
+        <span class="text-xs text-gray-500">Create QR codes for text or URLs</span>
+      </a>
+      <a href="/tools/unit-converter" class="tool-card" data-name="unit converter" data-desc="convert length, weight, temperature">
+        <span class="text-2xl">📏</span>
+        <span class="font-semibold">Unit Converter</span>
+        <span class="text-xs text-gray-500">Convert length, weight, temperature</span>
+      </a>
+      <a href="/tools/markdown-previewer" class="tool-card" data-name="markdown previewer" data-desc="live preview your markdown">
+        <span class="text-2xl">📝</span>
+        <span class="font-semibold">Markdown Previewer</span>
+        <span class="text-xs text-gray-500">Live preview your Markdown</span>
+      </a>
+      <a href="/tools/pomodoro-timer" class="tool-card" data-name="pomodoro timer" data-desc="focus with work/break intervals">
+        <span class="text-2xl">⏲️</span>
+        <span class="font-semibold">Pomodoro Timer</span>
+        <span class="text-xs text-gray-500">Focus with work/break intervals</span>
+      </a>
+      <a href="/tools/fake-data-generator" class="tool-card" data-name="fake data generator" data-desc="generate names, emails, addresses">
+        <span class="text-2xl">🧑‍💻</span>
+        <span class="font-semibold">Fake Data Generator</span>
+        <span class="text-xs text-gray-500">Generate names, emails, addresses</span>
+      </a>
+      <a href="/tools/text-case-converter" class="tool-card" data-name="text case converter" data-desc="upper, lower, title, snake_case">
+        <span class="text-2xl">🔡</span>
+        <span class="font-semibold">Text Case Converter</span>
+        <span class="text-xs text-gray-500">UPPER, lower, Title, snake_case</span>
+      </a>
+      <a href="/tools/simple-calculator" class="tool-card" data-name="simple calculator" data-desc="quick math, clean ui">
+        <span class="text-2xl">🧮</span>
+        <span class="font-semibold">Simple Calculator</span>
+        <span class="text-xs text-gray-500">Quick math, clean UI</span>
+      </a>
+    </div>
+    <script is:inline>
+      function filterTools(e) {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('.tool-card').forEach(card => {
+          const name = card.getAttribute('data-name') || '';
+          const desc = card.getAttribute('data-desc') || '';
+          if (name.includes(q) || desc.includes(q)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    </script>
+    <style>
+      .tool-card {
+        @apply bg-white rounded-xl shadow border border-blue-100 p-6 flex flex-col gap-2 items-start hover:shadow-lg hover:scale-[1.02] transition focus:outline-none focus:ring-2 focus:ring-blue-400;
+        text-decoration: none;
+      }
+    </style>
+  </section>
+</Layout>

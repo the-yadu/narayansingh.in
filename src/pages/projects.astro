@@ -1,34 +1,160 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    icon: '🏍️',
+    name: 'Manage my rides',
+    desc: 'A platform to organize and track motorcycle rides.',
+    link: null,
+    color: 'text-green-600',
+  },
+  {
+    icon: '🎲',
+    name: 'Flucky',
+    desc: 'A fun, interactive web app for random selections and games.',
+    link: null,
+    color: 'text-yellow-500',
+  },
+  {
+    icon: '🥗',
+    name: 'Eat healthy store',
+    desc: 'An e-commerce solution for healthy food products.',
+    link: null,
+    color: 'text-amber-700',
+  },
+  {
+    icon: '🔑',
+    name: 'Password Generator',
+    desc: 'Generate strong, customizable passwords with one click and copy to clipboard.',
+    link: '/password-generator',
+    color: 'text-green-700',
+  },
+  {
+    icon: '🎲',
+    name: 'Random Name Picker',
+    desc: 'Pick a random name from a list.',
+    link: '/tools/random-name-picker',
+    color: 'text-pink-600',
+  },
+  {
+    icon: '🎨',
+    name: 'Color Palette Generator',
+    desc: 'Generate beautiful color palettes.',
+    link: '/tools/color-palette-generator',
+    color: 'text-blue-600',
+  },
+  {
+    icon: '🔳',
+    name: 'QR Code Generator',
+    desc: 'Create QR codes for text or URLs.',
+    link: '/tools/qr-code-generator',
+    color: 'text-gray-700',
+  },
+  {
+    icon: '📏',
+    name: 'Unit Converter',
+    desc: 'Convert length, weight, temperature.',
+    link: '/tools/unit-converter',
+    color: 'text-green-700',
+  },
+  {
+    icon: '📝',
+    name: 'Markdown Previewer',
+    desc: 'Live preview your Markdown.',
+    link: '/tools/markdown-previewer',
+    color: 'text-yellow-700',
+  },
+  {
+    icon: '⏲️',
+    name: 'Pomodoro Timer',
+    desc: 'Focus with work/break intervals.',
+    link: '/tools/pomodoro-timer',
+    color: 'text-red-600',
+  },
+  {
+    icon: '🧑‍💻',
+    name: 'Fake Data Generator',
+    desc: 'Generate names, emails, addresses.',
+    link: '/tools/fake-data-generator',
+    color: 'text-indigo-700',
+  },
+  {
+    icon: '🔡',
+    name: 'Text Case Converter',
+    desc: 'UPPER, lower, Title, snake_case.',
+    link: '/tools/text-case-converter',
+    color: 'text-purple-700',
+  },
+  {
+    icon: '🧮',
+    name: 'Simple Calculator',
+    desc: 'Quick math, clean UI.',
+    link: '/tools/simple-calculator',
+    color: 'text-orange-700',
+  },
+];
 ---
 
 <Layout>
-  <section>
-    <h1>Projects</h1>
-    <ul class="project-list">
-      <li>
-        <strong>Manage my rides</strong> – A platform to organize and track motorcycle rides.
-      </li>
-      <li>
-        <strong>Flucky</strong> – A fun, interactive web app for random selections and games.
-      </li>
-      <li>
-        <strong>Eat healthy store</strong> – An e-commerce solution for healthy food products.
-      </li>
-      <li>
-        <em>More projects coming soon...</em>
-      </li>
-    </ul>
+  <section class="max-w-4xl mx-auto py-8 px-4">
+    <h1 class="text-3xl font-bold mb-8 text-gray-900">Projects</h1>
+    <div class="mb-6">
+      <input
+        id="project-search"
+        type="text"
+        placeholder="Search projects..."
+        class="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none text-lg shadow-sm bg-white"
+        oninput="filterProjects(event)"
+        aria-label="Search projects"
+      />
+    </div>
+    <div id="projects-grid" class="grid gap-6 md:grid-cols-2">
+      {projects.map((p, i) => p.link ? (
+        <a
+          href={p.link}
+          class={`bg-gradient-to-br from-green-100 to-green-50 rounded-xl shadow border border-green-200 p-6 flex flex-col hover:shadow-lg hover:scale-[1.02] transition focus:outline-none focus:ring-2 focus:ring-green-400 project-card`}
+          style="text-decoration: none;"
+          data-name={p.name.toLowerCase()}
+          data-desc={p.desc.toLowerCase()}
+        >
+          <div class="flex items-center gap-3 mb-2">
+            <span class={`${p.color} text-2xl`}>{p.icon}</span>
+            <span class="font-semibold text-lg text-gray-800">{p.name}</span>
+          </div>
+          <p class="text-gray-600 mb-2">{p.desc}</p>
+          <span class="inline-block mt-auto text-green-700 font-medium hover:underline">Try it →</span>
+        </a>
+      ) : (
+        <div
+          class="bg-white/90 rounded-xl shadow border border-gray-200 p-6 flex flex-col hover:shadow-lg transition project-card"
+          data-name={p.name.toLowerCase()}
+          data-desc={p.desc.toLowerCase()}
+        >
+          <div class="flex items-center gap-3 mb-2">
+            <span class={`${p.color} text-2xl`}>{p.icon}</span>
+            <span class="font-semibold text-lg text-gray-800">{p.name}</span>
+          </div>
+          <p class="text-gray-600 mb-2">{p.desc}</p>
+        </div>
+      ))}
+      <div class="bg-gray-50 rounded-xl border border-dashed border-gray-300 p-6 flex items-center justify-center text-gray-400 italic min-h-[100px] project-card" data-name="more projects" data-desc="more projects">
+        More projects coming soon...
+      </div>
+    </div>
+    <script is:inline>
+      function filterProjects(e) {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('.project-card').forEach(card => {
+          const name = card.getAttribute('data-name') || '';
+          const desc = card.getAttribute('data-desc') || '';
+          if (name.includes(q) || desc.includes(q)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    </script>
   </section>
 </Layout>
-
-<style>
-.project-list {
-  list-style: none;
-  padding: 0;
-}
-.project-list li {
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
-}
-</style>
