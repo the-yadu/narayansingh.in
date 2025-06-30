@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout>
+  <section class="max-w-4xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold mb-8 text-gray-900">Clocks Gallery</h1>
+    <p class="mb-8 text-gray-600">Explore a collection of beautiful, modern, and experimental clocks. More coming soon!</p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <a href="/clocks/smartisan" class="clock-card">
+        <span class="text-2xl">🕰️</span>
+        <span class="font-semibold">Smartisan Clock</span>
+        <span class="text-xs text-gray-500">Minimal analog clock inspired by Smartisan</span>
+      </a>
+      <a href="/clocks/minimal-gradient" class="clock-card">
+        <span class="text-2xl">🌈</span>
+        <span class="font-semibold">Minimal Gradient Clock</span>
+        <span class="text-xs text-gray-500">Gradient second hand, minimal face</span>
+      </a>
+      <!-- Add more clock links here as you build them -->
+    </div>
+    <style>
+      .clock-card {
+        @apply bg-white rounded-xl shadow border border-blue-100 p-6 flex flex-col gap-2 items-start hover:shadow-lg hover:scale-[1.02] transition focus:outline-none focus:ring-2 focus:ring-blue-400;
+        text-decoration: none;
+      }
+    </style>
+  </section>
+</Layout>
