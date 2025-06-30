@@ -1,48 +1,50 @@
-# Astro Starter Kit: Basics
+# Narayan Singh – Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+A modern, minimal, and accessible portfolio website for Narayan Singh, Full Stack Engineer. Built with [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and deployed on [Cloudflare Workers](https://workers.cloudflare.com/).
+
+## 🚀 Features
+- Clean, responsive, and accessible design
+- Blog, Projects, About, and Contact sections
+- Styled with Tailwind CSS utility classes
+- Astro Islands architecture for fast performance
+- Easily deployable to Cloudflare Workers
+
+## 🗂️ Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
+├── public/           # Static assets (images, favicon, etc.)
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/       # Custom images and styles
+│   ├── components/   # Astro components
+│   ├── layouts/      # Main layout file
+│   ├── pages/        # Site pages (index, blog, about, etc.)
+│   └── content/      # Content helpers (optional)
+├── package.json      # Project metadata and scripts
+├── astro.config.mjs  # Astro configuration
+├── tailwind.config.js# Tailwind CSS configuration
+├── wrangler.jsonc    # Cloudflare Worker deployment config
+└── ...
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command              | Action                                      |
+|----------------------|---------------------------------------------|
+| `npm install`        | Install dependencies                        |
+| `npm run dev`        | Start local dev server at `localhost:4321`  |
+| `npm run build`      | Build your production site to `./dist/`     |
+| `npm run preview`    | Preview your build locally                  |
+| `npx wrangler deploy`| Deploy to Cloudflare Workers                |
 
-## 👀 Want to learn more?
+## 🌐 Deployment (Cloudflare Workers)
+1. Configure your `wrangler.jsonc` with your Cloudflare account and domain.
+2. Build the site: `npm run build` (or let Wrangler do it automatically).
+3. Deploy: `npx wrangler deploy`
+4. Visit your domain to see your live portfolio!
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
