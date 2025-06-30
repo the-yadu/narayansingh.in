@@ -1,0 +1,29 @@
+// wrangler.jsonc - Cloudflare Worker configuration in JSONC format
+{
+  // The name of your Worker
+  "name": "narayansingh-in",
+
+  // Your Cloudflare account ID
+  "account_id": "d98ec3be70dc07bbff99ac8bf526dbec",
+
+  // Enable workers.dev subdomain for preview
+  "workers_dev": true,
+
+  // Route for your custom domain
+  "route": "narayansingh.in/*",
+
+  // Cloudflare compatibility date
+  "compatibility_date": "2025-06-30",
+
+  // Main entry point for the Worker
+  "main": "dist/_worker.js/index.js",
+
+  // Observability settings
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "assets": {
+    "directory": "./dist"
+  }
+}

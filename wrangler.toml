@@ -1,9 +1,0 @@
-name = "narayansingh-in"
-account_id = "d98ec3be70dc07bbff99ac8bf526dbec"
-workers_dev = true
-route = "narayansingh.in/*"
-compatibility_date = "2025-06-30"
-main = "dist/_worker.js/index.js"
-[observability]
-enabled = true
-head_sampling_rate = 1 # optional. default = 1.
