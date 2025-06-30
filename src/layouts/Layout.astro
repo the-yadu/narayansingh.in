@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Narayan Singh | Portfolio</title>
+		<link rel="stylesheet" href="/src/assets/global.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-[#f9f6f3] min-h-screen font-sans" style="font-family: 'Inter', system-ui, sans-serif;">
+		<div class="min-h-screen flex flex-col">
+			<header class="w-full max-w-7xl mx-auto flex items-center justify-between py-8 px-8">
+				<div class="flex items-center gap-4">
+					<a href="/" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-black text-xl">NS</a>
+					<a href="/" class="font-black text-xl tracking-wide hover:underline">NARAYAN SINGH</a>
+				</div>
+				<nav>
+					<ul class="flex gap-10 text-base font-medium text-gray-700">
+						<li><a href="/blog" class="hover:text-blue-600 transition">Blog</a></li>
+						<li><a href="/projects" class="hover:text-blue-600 transition">Projects</a></li>
+						<li><a href="/about" class="hover:text-blue-600 transition">About</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main class="flex-1 w-full max-w-7xl mx-auto px-8">
+				<slot />
+			</main>
+			<footer class="w-full bg-[#232323] text-gray-200 py-10 mt-16">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
+            <a href="/blog" class="hover:underline">Blog</a>
+            <a href="/speaking" class="hover:underline">Speaking</a>
+            <a href="/the-deck" class="hover:underline">The deck</a>
+            <a href="/about" class="hover:underline">About me</a>
+            <a href="/compliance" class="hover:underline">Compliance statement</a>
+            <a href="/privacy" class="hover:underline">Privacy policy</a>
+          </div>
+          <div class="flex gap-6">
+            <a href="https://instagram.com/the_yadu" target="_blank" rel="noopener" class="hover:text-blue-400">Instagram</a>
+            <a href="https://twitter.com/the-yadu" target="_blank" rel="noopener" class="hover:text-blue-400">Twitter</a>
+            <a href="https://github.com/the-yadu" target="_blank" rel="noopener" class="hover:text-blue-400">GitHub</a>
+          </div>
+        </div>
+      </footer>
+		</div>
+	</body>
+</html>

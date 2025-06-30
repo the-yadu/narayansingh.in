@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section>
+    <h1>Contact</h1>
+    <p>Feel free to reach out via social media:</p>
+    <ul class="contact-list">
+      <li><a href="https://instagram.com/the_yadu" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://twitter.com/the-yadu" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://github.com/the-yadu" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+.contact-list a {
+  color: #0077ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-list a:hover {
+  color: #005bb5;
+}
+</style>
