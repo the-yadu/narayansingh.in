@@ -76,8 +76,8 @@ const LargeMessage: React.FC = () => {
     // Prefer Web Share API on mobile
     if (navigator.share && /Mobi|Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent)) {
       navigator.share({
-        title: 'Large Message',
-        text: text ? `Check out this message: ${text}` : undefined,
+        title: 'You have a new message! Click to reveal',
+        text: 'Someone sent you a large message. Open the link to see it in big, beautiful type!',
         url: window.location.href,
       }).catch(() => {
         // fallback to clipboard if user cancels or share fails
@@ -118,20 +118,35 @@ const LargeMessage: React.FC = () => {
           Use base64-encoded URL (for privacy)
         </label>
       </div>
-      <div className="flex w-full max-w-xl gap-2 mb-4">
+      <div className="w-full max-w-xl mb-2">
         <input
           ref={inputRef}
-          className="flex-1 text-2xl px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow"
+          className="w-full text-2xl px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow"
           placeholder="Type your message and press Enter..."
           value={text}
           onChange={e => setText(e.target.value)}
           onKeyDown={handleKeyDown}
           aria-label="Large message input"
         />
+      </div>
+      <div className="flex w-full max-w-xl gap-2 mb-4">
+        <button
+          type="button"
+          onClick={() => setText('')}
+          className="flex-1 px-4 py-2 rounded-lg bg-gray-200 text-gray-600 hover:bg-gray-300 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+          aria-label="Clear message"
+          title="Clear"
+          disabled={!text}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 inline-block align-text-bottom mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          Clear
+        </button>
         <button
           type="button"
           onClick={handleShare}
-          className="ml-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center gap-1"
+          className="flex-1 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center justify-center gap-1"
           aria-label="Share message link"
           title="Copy shareable link to clipboard"
         >
@@ -147,7 +162,7 @@ const LargeMessage: React.FC = () => {
       <div className="relative w-full">
         <button
           type="button"
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="absolute top-2 right-2 z-10 p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
           title="Maximise"
           aria-label="Maximise"
           onClick={() => {
@@ -162,7 +177,7 @@ const LargeMessage: React.FC = () => {
         </button>
         <div
           ref={displayRef}
-          className="w-full min-h-[40vh] flex items-center justify-center bg-white rounded-2xl border border-gray-200 shadow text-gray-900 text-5xl md:text-7xl font-black text-center break-words p-8 select-all transition-all"
+          className="w-full min-h-[30vh] sm:min-h-[40vh] flex items-center justify-center bg-white rounded-2xl border border-gray-200 shadow text-gray-900 text-3xl sm:text-5xl md:text-7xl font-black text-center break-words p-4 sm:p-8 select-all transition-all"
           tabIndex={-1}
           aria-live="polite"
         >
