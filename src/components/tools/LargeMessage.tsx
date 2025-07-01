@@ -21,6 +21,7 @@ function encodeText(text: string, base64Mode: boolean): string {
 const LargeMessage: React.FC = () => {
   const [base64Mode, setBase64Mode] = useState(false);
   const [text, setText] = useState<string>(() => getTextFromUrl(false));
+  const [shareStatus, setShareStatus] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const displayRef = useRef<HTMLDivElement>(null);
 
@@ -69,6 +70,41 @@ const LargeMessage: React.FC = () => {
     setBase64Mode(e.target.checked);
   }
 
+  // Share button handler
+  function handleShare() {
+    if (typeof window === 'undefined') return;
+    // Prefer Web Share API on mobile
+    if (navigator.share && /Mobi|Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent)) {
+      navigator.share({
+        title: 'Large Message',
+        text: text ? `Check out this message: ${text}` : undefined,
+        url: window.location.href,
+      }).catch(() => {
+        // fallback to clipboard if user cancels or share fails
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => {
+            setShareStatus('Copied!');
+            setTimeout(() => setShareStatus(''), 1500);
+          })
+          .catch(() => {
+            setShareStatus('Failed to copy');
+            setTimeout(() => setShareStatus(''), 1500);
+          });
+      });
+      return;
+    }
+    // Fallback: copy to clipboard
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => {
+        setShareStatus('Copied!');
+        setTimeout(() => setShareStatus(''), 1500);
+      })
+      .catch(() => {
+        setShareStatus('Failed to copy');
+        setTimeout(() => setShareStatus(''), 1500);
+      });
+  }
+
   return (
     <div className="flex flex-col gap-8 items-center">
       <div className="flex items-center gap-4 mb-2">
@@ -82,15 +118,32 @@ const LargeMessage: React.FC = () => {
           Use base64-encoded URL (for privacy)
         </label>
       </div>
-      <input
-        ref={inputRef}
-        className="w-full max-w-xl text-2xl px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow mb-4"
-        placeholder="Type your message and press Enter..."
-        value={text}
-        onChange={e => setText(e.target.value)}
-        onKeyDown={handleKeyDown}
-        aria-label="Large message input"
-      />
+      <div className="flex w-full max-w-xl gap-2 mb-4">
+        <input
+          ref={inputRef}
+          className="flex-1 text-2xl px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow"
+          placeholder="Type your message and press Enter..."
+          value={text}
+          onChange={e => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          aria-label="Large message input"
+        />
+        <button
+          type="button"
+          onClick={handleShare}
+          className="ml-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center gap-1"
+          aria-label="Share message link"
+          title="Copy shareable link to clipboard"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 8a3 3 0 00-3-3m0 0a3 3 0 00-3 3m3-3v12m-6 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <span className="hidden sm:inline">Share</span>
+        </button>
+        {shareStatus && (
+          <span className="ml-2 text-green-600 text-sm self-center">{shareStatus}</span>
+        )}
+      </div>
       <div className="relative w-full">
         <button
           type="button"

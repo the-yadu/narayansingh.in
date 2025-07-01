@@ -97,7 +97,7 @@ const projects = [
 ---
 
 <Layout>
-  <section class="max-w-4xl mx-auto py-8 px-4">
+  <section class="max-w-4xl mx-auto py-8 px-2 sm:px-4">
     <h1 class="text-3xl font-bold mb-8 text-gray-900">Projects</h1>
     <div class="mb-6">
       <input
@@ -109,7 +109,7 @@ const projects = [
         aria-label="Search projects"
       />
     </div>
-    <div id="projects-grid" class="grid gap-6 md:grid-cols-2">
+    <div id="projects-grid" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
       {projects.map((p, i) => p.link ? (
         <a
           href={p.link}

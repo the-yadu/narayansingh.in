@@ -9,7 +9,51 @@ html, body {
   font-family: system-ui, sans-serif;
   background: #fff;
   color: #222;
+  overscroll-behavior-x: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive utility for cards and sections */
+section, .tool-card, .project-card, .clock-card {
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  h1, .text-6xl { font-size: 2.25rem !important; }
+  h2, .text-2xl, .text-3xl, .text-4xl { font-size: 1.5rem !important; }
+  .rounded-3xl, .rounded-xl, .rounded-lg { border-radius: 1rem !important; }
+  .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  .mb-24 { margin-bottom: 2rem !important; }
+  .gap-12, .gap-16 { gap: 1.5rem !important; }
+  .w-80, .w-96, .h-80, .h-72 { width: 100% !important; height: auto !important; }
+  .max-w-xl, .max-w-4xl { max-width: 100% !important; }
+}
+
+/* Hide scrollbars on mobile for nav overlays */
+#mobile-nav {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
 .navbar {
   width: 100%;
   background: #fff;
@@ -48,9 +92,4 @@ html, body {
 }
 .nav-links a:hover {
   color: #0077ff;
-}
-main {
-  max-width: 900px;
-  margin: 2rem auto 0 auto;
-  padding: 0 1rem;
 }
