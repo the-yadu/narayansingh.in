@@ -1,0 +1,99 @@
+/* Overrides for daisyUI compatibility */
+
+/* Base layout fixes for all themes */
+.blog-post-content {
+  background-color: var(--b2, #f8f9fa) !important;
+  color: var(--bc, #1f2937) !important;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Fix headings in all themes */
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6 {
+  color: var(--bc, #1f2937) !important;
+  font-weight: 700;
+}
+
+/* Fix links in all themes */
+.blog-post-content a {
+  color: var(--p, #3b82f6) !important;
+}
+
+/* Fix blockquotes in all themes */
+.blog-post-content blockquote {
+  border-left-color: var(--p, #3b82f6) !important;
+  background-color: var(--b3, #f1f3f5) !important;
+}
+
+/* Fix code blocks in all themes */
+.blog-post-content pre {
+  background-color: var(--n, #2a2a2a) !important;
+  color: var(--nc, #ffffff) !important;
+}
+
+.blog-post-content code {
+  background-color: var(--b3, #f1f3f5) !important;
+  color: var(--bc, #1f2937) !important;
+}
+
+/* Fix tables in all themes */
+.blog-post-content table th {
+  background-color: var(--b3, #f1f3f5) !important;
+}
+
+.blog-post-content table td,
+.blog-post-content table th {
+  border-color: var(--b3, #f1f3f5) !important;
+}
+
+/* Fix markdown-body class for MDX content */
+.markdown-body {
+  background-color: var(--b2, #f8f9fa) !important;
+  color: var(--bc, #1f2937) !important;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--bc, #1f2937) !important;
+}
+
+/* Fix card backgrounds */
+.card {
+  background-color: var(--b1, #ffffff) !important;
+}
+
+/* Fix prose text in MDX content */
+.prose {
+  color: var(--bc, #1f2937) !important;
+}
+
+.prose a {
+  color: var(--p, #3b82f6) !important;
+}
+
+/* Fix background colors for content blocks */
+.bg-white {
+  background-color: var(--b1, #ffffff) !important;
+}
+
+/* General text color fixes */
+.text-gray-600, 
+.text-gray-700, 
+.text-gray-800 {
+  color: var(--bc, #1f2937) !important;
+  opacity: 0.8;
+}
+
+/* Fix borders */
+.border-gray-100 {
+  border-color: var(--b3, #f1f3f5) !important;
+}

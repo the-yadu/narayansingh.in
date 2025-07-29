@@ -5,63 +5,63 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <section class="flex flex-col md:flex-row items-center justify-between gap-12 pt-8 pb-24">
     <div class="flex-1 min-w-0">
-      <h1 class="text-6xl font-black mb-6 leading-tight text-gray-900 break-words">Full Stack Engineering & Digital Craft</h1>
-      <p class="text-lg text-gray-700 mb-8 max-w-xl">Hi, I'm Narayan Singh. I'm a full stack engineer specializing in robust, accessible digital products.</p>
+      <h1 class="text-6xl font-black mb-6 leading-tight text-gray-900 dark:text-white break-words">Full Stack Engineering & Digital Craft</h1>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-xl">Hi, I'm Narayan Singh. I'm a full stack engineer specializing in robust, accessible digital products.</p>
       <div class="flex flex-col sm:flex-row gap-6 sm:gap-16 mb-8">
         <div>
-          <div class="font-bold text-gray-900 mb-1">Right now</div>
-          <div class="text-gray-700">Full stack engineer, building and mentoring</div>
+          <div class="font-bold text-gray-900 dark:text-white mb-1">Right now</div>
+          <div class="text-gray-700 dark:text-gray-300">Full stack engineer, building and mentoring</div>
         </div>
         <div>
-          <div class="font-bold text-gray-900 mb-1">Location</div>
-          <div class="text-gray-700">India (and remotely)</div>
+          <div class="font-bold text-gray-900 dark:text-white mb-1">Location</div>
+          <div class="text-gray-700 dark:text-gray-300">India (and remotely)</div>
         </div>
       </div>
-      <a href="/about" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-full text-lg font-semibold shadow hover:bg-gray-800 transition">About me</a>
+      <a href="/about" class="inline-block bg-gray-900 dark:bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold shadow hover:bg-gray-800 dark:hover:bg-blue-600 transition">About me</a>
     </div>
     <div class="flex-1 flex justify-center min-w-0">
-      <div class="w-80 h-80 rounded-full overflow-hidden shadow-xl bg-gray-200 flex items-center justify-center max-w-full max-h-[60vw]">
+      <div class="w-80 h-80 rounded-full overflow-hidden shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center max-w-full max-h-[60vw]">
         <img src="/profile.jpg" alt="Narayan Singh" class="object-cover w-full h-full" />
       </div>
     </div>
   </section>
 
-  <section class="w-full bg-yellow-200 py-20 px-4 sm:px-8 rounded-3xl mb-24 flex flex-col md:flex-row items-center gap-12 border-4 border-yellow-400 shadow-lg animate-pulse">
+  <section class="w-full bg-yellow-200 dark:bg-yellow-900 py-20 px-4 sm:px-8 rounded-3xl mb-24 flex flex-col md:flex-row items-center gap-12 border-4 border-yellow-400 dark:border-yellow-600 shadow-lg">
     <div class="flex-1 min-w-0">
-      <h2 class="text-2xl font-black mb-4 text-gray-900">✨ New Project: Password Generator</h2>
-      <p class="text-gray-700 mb-6 max-w-xl">Try my interactive <a href="/password-generator" class="underline font-bold text-gray-900">Password Generator</a>! Instantly create strong, customizable passwords and copy them to your clipboard. Built for security and ease of use.</p>
-      <a href="/password-generator" class="inline-block bg-gray-900 text-yellow-200 px-7 py-2.5 rounded-full font-semibold shadow hover:bg-gray-800 transition">Try Password Generator</a>
+      <h2 class="text-2xl font-black mb-4 text-gray-900 dark:text-yellow-100">✨ New Project: Password Generator</h2>
+      <p class="text-gray-700 dark:text-yellow-200 mb-6 max-w-xl">Try my interactive <a href="/password-generator" class="underline font-bold text-gray-900 dark:text-yellow-100">Password Generator</a>! Instantly create strong, customizable passwords and copy them to your clipboard. Built for security and ease of use.</p>
+      <a href="/password-generator" class="inline-block bg-gray-900 dark:bg-yellow-700 text-yellow-200 dark:text-yellow-100 px-7 py-2.5 rounded-full font-semibold shadow hover:bg-gray-800 dark:hover:bg-yellow-800 transition">Try Password Generator</a>
     </div>
   </section>
 
-  <section class="w-full bg-[#e6ffd6] py-20 px-4 sm:px-8 rounded-3xl mb-24 flex flex-col md:flex-row items-center gap-12">
+  <section class="w-full bg-[#e6ffd6] dark:bg-emerald-900 py-20 px-4 sm:px-8 rounded-3xl mb-24 flex flex-col md:flex-row items-center gap-12">
     <div class="flex-1 min-w-0">
-      <h2 class="text-2xl font-black mb-4 text-gray-900">Good design includes everyone</h2>
-      <p class="text-gray-700 mb-6 max-w-xl">Every project I build aims to be accessible and user-friendly for all. I believe in technology that empowers people and brings joy, regardless of ability or background.</p>
-      <a href="/blog" class="inline-block bg-gray-900 text-white px-7 py-2.5 rounded-full font-semibold shadow hover:bg-gray-800 transition">Read my stories</a>
+      <h2 class="text-2xl font-black mb-4 text-gray-900 dark:text-emerald-100">Good design includes everyone</h2>
+      <p class="text-gray-700 dark:text-emerald-200 mb-6 max-w-xl">Every project I build aims to be accessible and user-friendly for all. I believe in technology that empowers people and brings joy, regardless of ability or background.</p>
+      <a href="/blog" class="inline-block bg-gray-900 dark:bg-emerald-700 text-white px-7 py-2.5 rounded-full font-semibold shadow hover:bg-gray-800 dark:hover:bg-emerald-800 transition">Read my stories</a>
     </div>
   </section>
 
   <section class="mb-24">
-    <h2 class="text-2xl font-black mb-8 text-gray-900">Latest work</h2>
+    <h2 class="text-2xl font-black mb-8 text-gray-900 dark:text-white">Latest work</h2>
     <div class="flex flex-col md:flex-row gap-12 items-center">
       <div class="flex-1 flex justify-center min-w-0 w-full">
-        <div class="w-96 h-72 rounded-3xl overflow-hidden shadow-xl bg-gray-200 flex items-center justify-center max-w-full max-h-[60vw]">
+        <div class="w-96 h-72 rounded-3xl overflow-hidden shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center max-w-full max-h-[60vw]">
           <img src="/project1.jpg" alt="Project preview" class="object-cover w-full h-full" />
         </div>
       </div>
       <div class="flex-1 space-y-8 min-w-0 w-full">
-        <div class="border-4 border-yellow-400 rounded-lg p-4 bg-yellow-50 shadow">
-          <h3 class="font-bold text-lg mb-1">Password Generator <span class="ml-2 text-yellow-500">NEW</span></h3>
-          <p class="text-gray-700">Create strong, customizable passwords and copy them to your clipboard. <a href="/password-generator" class="underline font-bold">Try it now!</a></p>
+        <div class="border-4 border-yellow-400 dark:border-yellow-600 rounded-lg p-4 bg-yellow-50 dark:bg-yellow-900 shadow">
+          <h3 class="font-bold text-lg mb-1 text-gray-900 dark:text-yellow-100">Password Generator <span class="ml-2 text-yellow-500 dark:text-yellow-300">NEW</span></h3>
+          <p class="text-gray-700 dark:text-yellow-200">Create strong, customizable passwords and copy them to your clipboard. <a href="/password-generator" class="underline font-bold text-gray-900 dark:text-yellow-100">Try it now!</a></p>
         </div>
-        <div>
-          <h3 class="font-bold text-lg mb-1">Flucky</h3>
-          <p class="text-gray-700">Interactive web app for random selections and games. Fun, fast, and fair.</p>
+        <div class="dark:bg-gray-800 dark:p-4 dark:rounded-lg">
+          <h3 class="font-bold text-lg mb-1 dark:text-white">Flucky</h3>
+          <p class="text-gray-700 dark:text-gray-300">Interactive web app for random selections and games. Fun, fast, and fair.</p>
         </div>
-        <div>
-          <h3 class="font-bold text-lg mb-1">Eat healthy store</h3>
-          <p class="text-gray-700">E-commerce for healthy food products. Making healthy choices easy and accessible.</p>
+        <div class="dark:bg-gray-800 dark:p-4 dark:rounded-lg">
+          <h3 class="font-bold text-lg mb-1 dark:text-white">Eat healthy store</h3>
+          <p class="text-gray-700 dark:text-gray-300">E-commerce for healthy food products. Making healthy choices easy and accessible.</p>
         </div>
       </div>
     </div>
@@ -80,58 +80,58 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="w-full bg-blue-50 py-20 px-4 sm:px-8 rounded-3xl mb-24">
-    <h2 class="text-2xl font-black mb-8 text-gray-900">Featured Tools</h2>
+  <section class="w-full bg-blue-50 dark:bg-blue-900 py-20 px-4 sm:px-8 rounded-3xl mb-24">
+    <h2 class="text-2xl font-black mb-8 text-gray-900 dark:text-blue-100">Featured Tools</h2>
     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
       <a href="/tools/random-name-picker" class="tool-card">
         <span class="text-2xl">🎲</span>
         <span class="font-semibold">Random Name Picker</span>
-        <span class="text-xs text-gray-500">Pick a random name from a list</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Pick a random name from a list</span>
       </a>
       <a href="/tools/color-palette-generator" class="tool-card">
         <span class="text-2xl">🎨</span>
         <span class="font-semibold">Color Palette Generator</span>
-        <span class="text-xs text-gray-500">Generate beautiful color palettes</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Generate beautiful color palettes</span>
       </a>
       <a href="/tools/qr-code-generator" class="tool-card">
         <span class="text-2xl">🔳</span>
         <span class="font-semibold">QR Code Generator</span>
-        <span class="text-xs text-gray-500">Create QR codes for text or URLs</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Create QR codes for text or URLs</span>
       </a>
       <a href="/tools/unit-converter" class="tool-card">
         <span class="text-2xl">📏</span>
         <span class="font-semibold">Unit Converter</span>
-        <span class="text-xs text-gray-500">Convert length, weight, temperature</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Convert length, weight, temperature</span>
       </a>
       <a href="/tools/markdown-previewer" class="tool-card">
         <span class="text-2xl">📝</span>
         <span class="font-semibold">Markdown Previewer</span>
-        <span class="text-xs text-gray-500">Live preview your Markdown</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Live preview your Markdown</span>
       </a>
       <a href="/tools/pomodoro-timer" class="tool-card">
         <span class="text-2xl">⏲️</span>
         <span class="font-semibold">Pomodoro Timer</span>
-        <span class="text-xs text-gray-500">Focus with work/break intervals</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Focus with work/break intervals</span>
       </a>
       <a href="/tools/fake-data-generator" class="tool-card">
         <span class="text-2xl">🧑‍💻</span>
         <span class="font-semibold">Fake Data Generator</span>
-        <span class="text-xs text-gray-500">Generate names, emails, addresses</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Generate names, emails, addresses</span>
       </a>
       <a href="/tools/text-case-converter" class="tool-card">
         <span class="text-2xl">🔡</span>
         <span class="font-semibold">Text Case Converter</span>
-        <span class="text-xs text-gray-500">UPPER, lower, Title, snake_case</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">UPPER, lower, Title, snake_case</span>
       </a>
       <a href="/tools/simple-calculator" class="tool-card">
         <span class="text-2xl">🧮</span>
         <span class="font-semibold">Simple Calculator</span>
-        <span class="text-xs text-gray-500">Quick math, clean UI</span>
+        <span class="text-xs text-gray-500 dark:text-gray-300">Quick math, clean UI</span>
       </a>
     </div>
     <style>
       .tool-card {
-        @apply bg-white rounded-xl shadow border border-blue-100 p-6 flex flex-col gap-2 items-start hover:shadow-lg hover:scale-[1.02] transition focus:outline-none focus:ring-2 focus:ring-blue-400 w-full;
+        @apply bg-white dark:bg-gray-800 rounded-xl shadow border border-blue-100 dark:border-blue-800 p-6 flex flex-col gap-2 items-start hover:shadow-lg hover:scale-[1.02] transition focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 text-gray-800 dark:text-white w-full;
         text-decoration: none;
       }
     </style>

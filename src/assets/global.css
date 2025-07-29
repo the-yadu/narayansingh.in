@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base theme compatibility styles */
 html, body {
   margin: 0;
   width: 100%;
   height: 100%;
   font-family: system-ui, sans-serif;
-  background: #fff;
-  color: #222;
   overscroll-behavior-x: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -52,46 +51,6 @@ section, .tool-card, .project-card, .clock-card {
 #mobile-nav {
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
-}
-
-.navbar {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  padding: 0.5rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.nav-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-.logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #222;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #222;
-  font-size: 1rem;
-  transition: color 0.2s;
-}
-.nav-links a:hover {
-  color: #0077ff;
 }
 
 @keyframes spin-slow {

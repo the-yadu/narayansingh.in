@@ -114,14 +114,14 @@ const LargeMessage: React.FC = () => {
           checked={base64Mode}
           onChange={handleModeChange}
         />
-        <label htmlFor="base64-mode" className="text-sm text-gray-700 cursor-pointer select-none">
+        <label htmlFor="base64-mode" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer select-none">
           Use base64-encoded URL (for privacy)
         </label>
       </div>
       <div className="w-full max-w-xl mb-2">
         <input
           ref={inputRef}
-          className="w-full text-2xl px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow"
+          className="w-full text-2xl px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500 focus:outline-none shadow bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
           placeholder="Type your message and press Enter..."
           value={text}
           onChange={e => setText(e.target.value)}
@@ -133,7 +133,7 @@ const LargeMessage: React.FC = () => {
         <button
           type="button"
           onClick={() => setText('')}
-          className="flex-1 px-4 py-2 rounded-lg bg-gray-200 text-gray-600 hover:bg-gray-300 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 shadow focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500"
           aria-label="Clear message"
           title="Clear"
           disabled={!text}
@@ -177,14 +177,21 @@ const LargeMessage: React.FC = () => {
         </button>
         <div
           ref={displayRef}
-          className="w-full min-h-[30vh] sm:min-h-[40vh] flex items-center justify-center bg-white rounded-2xl border border-gray-200 shadow text-gray-900 text-3xl sm:text-5xl md:text-7xl font-black text-center break-words p-4 sm:p-8 select-all transition-all"
+          className="w-full min-h-[30vh] sm:min-h-[40vh] flex items-center justify-center bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow text-gray-900 dark:text-white text-3xl sm:text-5xl md:text-7xl font-black text-center break-words p-4 sm:p-8 select-all transition-all whitespace-normal"
           tabIndex={-1}
           aria-live="polite"
+          style={{ wordBreak: 'break-word', whiteSpace: 'normal' }}
         >
-          {text || <span className="text-gray-300 font-bold">Your message will appear here</span>}
+          {text ? (
+            <span style={{ display: 'inline-block', whiteSpace: 'normal', wordBreak: 'break-word' }}>
+              {text}
+            </span>
+          ) : (
+            <span className="text-gray-300 dark:text-gray-500 font-bold">Your message will appear here</span>
+          )}
         </div>
       </div>
-      <div className="text-xs text-gray-400 mt-2 text-center">
+      <div className="text-xs text-gray-400 dark:text-gray-500 mt-2 text-center">
         Press <span className="font-semibold">Enter</span> to go full screen.<br />
         The URL updates as you type and can be shared.<br />
         <span className="font-semibold">Base64 mode</span> hides your message in the URL.<br />

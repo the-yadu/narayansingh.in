@@ -1,0 +1,143 @@
+---
+import Layout from './Layout.astro';
+const { title, date, description, coverImage } = Astro.props;
+---
+
+<Layout>
+  <article class="prose prose-lg max-w-3xl mx-auto rounded-2xl shadow-lg p-8 my-12 bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
+    <header class="mb-8 border-b border-gray-200 dark:border-gray-700 pb-4">
+      <h1 class="text-4xl font-black mb-2">{title}</h1>
+      {date && <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{date}</p>}
+      {description && <p class="text-base mb-2">{description}</p>}
+    </header>
+    <slot />
+  </article>
+</Layout>
+
+<style is:global>
+  .markdown-content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #3b82f6;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dark .markdown-content h2 {
+    color: #60a5fa;
+    border-bottom-color: #374151;
+  }
+  
+  .markdown-content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: #3b82f6;
+  }
+  
+  .dark .markdown-content h3 {
+    color: #60a5fa;
+  }
+  
+  .markdown-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+  }
+  
+  .markdown-content ul, .markdown-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .markdown-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .markdown-content img {
+    border-radius: 0.5rem;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    display: block;
+  }
+  
+  .markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .markdown-content th, .markdown-content td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  
+  .dark .markdown-content th, 
+  .dark .markdown-content td {
+    border-color: #374151;
+  }
+  
+  .markdown-content th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  .dark .markdown-content th {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+  
+  .markdown-content tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  .dark .markdown-content tr:nth-child(even) {
+    background-color: #1f2937;
+  }
+  
+  .dark .markdown-content tr:nth-child(odd) {
+    background-color: #111827;
+  }
+
+  .markdown-content blockquote {
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.5rem;
+    background-color: #f9fafb;
+    margin: 1.5rem 0;
+    font-style: italic;
+    border-radius: 0.25rem;
+  }
+  
+  .dark .markdown-content blockquote {
+    border-left-color: #60a5fa;
+    background-color: #1f2937;
+  }
+  
+  .markdown-content hr {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 2rem 0;
+  }
+  
+  .dark .markdown-content hr {
+    border-top-color: #374151;
+  }
+  
+  .markdown-content a {
+    color: #3b82f6;
+    text-decoration: underline;
+  }
+  
+  .dark .markdown-content a {
+    color: #60a5fa;
+  }
+
+  .markdown-content a:hover {
+    color: #2563eb;
+  }
+</style>

@@ -1,0 +1,20 @@
+---
+import EMICalculator from './EMICalculator';
+---
+
+<div class="emi-calculator-wrapper">
+  <div class="card bg-base-100 shadow-lg border border-base-200">
+    <div class="card-body">
+      <h2 class="card-title text-2xl font-bold text-primary mb-4">EMI Calculator</h2>
+      <EMICalculator client:load defaultLoanAmount={2000000} defaultInterestRate={8.5} defaultTenure={60} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .emi-calculator-wrapper {
+    margin: 2.5rem 0;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+</style>

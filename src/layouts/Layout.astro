@@ -8,67 +8,106 @@
 		<title>Narayan Singh | Portfolio</title>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-EWXBQNTNE2"></script>
-		<script>
+		<script is:inline>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 		  gtag('config', 'G-EWXBQNTNE2');
 		</script>
 	</head>
-	<body class="bg-[#f9f6f3] min-h-screen font-sans antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
+	<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-white min-h-screen font-sans antialiased" style="font-family: 'Inter', system-ui, sans-serif;">
 		<div class="min-h-screen flex flex-col">
 			<header class="w-full max-w-7xl mx-auto flex items-center justify-between py-6 px-4 md:py-8 md:px-8 relative">
 				<div class="flex items-center gap-4">
-					<a href="/" class="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-black text-xl">NS</a>
+					<a href="/" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-black text-xl">NS</a>
 					<a href="/" class="font-black text-xl tracking-wide hover:underline">NARAYAN SINGH</a>
 				</div>
 				<nav class="hidden md:block">
-					<ul class="flex gap-6 md:gap-10 text-base font-medium text-gray-700">
-						<li><a href="/blog" class="hover:text-blue-600 transition">Blog</a></li>
-						<li><a href="/projects" class="hover:text-blue-600 transition">Projects</a></li>
-						<li><a href="/clocks" class="hover:text-blue-600 transition">Clocks</a></li>
-						<li><a href="/tools" class="hover:text-blue-600 transition">Tools</a></li>
-						<li><a href="/about" class="hover:text-blue-600 transition">About</a></li>
+					<ul class="flex gap-6 md:gap-10 text-base font-medium text-gray-600 dark:text-gray-300 items-center">
+						<li><a href="/blog" class="hover:text-primary transition">Blog</a></li>
+						<li><a href="/projects" class="hover:text-primary transition">Projects</a></li>
+						<li><a href="/clocks" class="hover:text-primary transition">Clocks</a></li>
+						<li><a href="/tools" class="hover:text-primary transition">Tools</a></li>
+						<li><a href="/contact" class="hover:text-primary transition">Contact</a></li>
+						<li><a href="/about" class="hover:text-primary transition">About</a></li>
+						<li>
+							<button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition" aria-label="Toggle dark mode">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 dark:hidden">
+									<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 hidden dark:block">
+									<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+								</svg>
+							</button>
+						</li>
 					</ul>
 				</nav>
 				<!-- Mobile menu button -->
-				<button id="nav-toggle" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 absolute right-4 top-6" aria-label="Open menu">
-					<svg class="w-7 h-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+				<button id="nav-toggle" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary absolute right-4 top-6" aria-label="Open menu">
+					<svg class="w-7 h-7 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
 				</button>
 				<!-- Mobile nav -->
-				<nav id="mobile-nav" class="fixed inset-0 z-50 bg-white bg-opacity-95 flex-col items-center justify-center gap-8 text-xl font-semibold text-gray-800 hidden">
-					<button id="nav-close" class="absolute top-6 right-6 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" aria-label="Close menu">
+				<nav id="mobile-nav" class="fixed inset-0 z-50 bg-white dark:bg-gray-900 bg-opacity-95 flex-col items-center justify-center gap-8 text-xl font-semibold text-gray-800 dark:text-white hidden">
+					<button id="nav-close" class="absolute top-6 right-6 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Close menu">
 						<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 					</button>
 					<ul class="flex flex-col gap-8 items-center mt-20">
-						<li><a href="/blog" class="hover:text-blue-600 transition">Blog</a></li>
-						<li><a href="/projects" class="hover:text-blue-600 transition">Projects</a></li>
-						<li><a href="/clocks" class="hover:text-blue-600 transition">Clocks</a></li>
-						<li><a href="/tools" class="hover:text-blue-600 transition">Tools</a></li>
-						<li><a href="/about" class="hover:text-blue-600 transition">About</a></li>
+						<li><a href="/blog" class="hover:text-primary transition">Blog</a></li>
+						<li><a href="/projects" class="hover:text-primary transition">Projects</a></li>
+						<li><a href="/clocks" class="hover:text-primary transition">Clocks</a></li>
+						<li><a href="/tools" class="hover:text-primary transition">Tools</a></li>
+						<li><a href="/contact" class="hover:text-primary transition">Contact</a></li>
+						<li><a href="/about" class="hover:text-primary transition">About</a></li>
+						<li>
+							<button id="mobile-theme-toggle" class="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none transition flex items-center gap-2">
+								<span class="dark:hidden">Light Mode</span>
+								<span class="hidden dark:block">Dark Mode</span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 dark:hidden">
+									<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 hidden dark:block">
+									<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+								</svg>
+							</button>
+						</li>
 					</ul>
 				</nav>
 				<script is:inline>
+					// Mobile navigation
 					const navToggle = document.getElementById('nav-toggle');
 					const mobileNav = document.getElementById('mobile-nav');
 					const navClose = document.getElementById('nav-close');
 					navToggle?.addEventListener('click', () => mobileNav.classList.remove('hidden'));
 					navClose?.addEventListener('click', () => mobileNav.classList.add('hidden'));
 					mobileNav?.addEventListener('click', e => { if (e.target.tagName === 'A') mobileNav.classList.add('hidden'); });
+					
+					// Theme toggle functionality
+					const toggleTheme = () => {
+						if (document.documentElement.classList.contains('dark')) {
+							document.documentElement.classList.remove('dark');
+							localStorage.setItem('theme', 'light');
+						} else {
+							document.documentElement.classList.add('dark');
+							localStorage.setItem('theme', 'dark');
+						}
+					};
+					
+					document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+					document.getElementById('mobile-theme-toggle')?.addEventListener('click', toggleTheme);
 				</script>
 			</header>
-			<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+			<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 bg-white text-gray-800 dark:bg-gray-900 dark:text-white">
 				<slot />
 			</main>
-			<footer class="w-full bg-[#232323] text-gray-200 py-10 mt-16">
+			<footer class="w-full bg-gray-800 text-white py-10 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
             <a href="/blog" class="hover:underline">Blog</a>
-            <a href="/speaking" class="hover:underline">Speaking</a>
-            <a href="/the-deck" class="hover:underline">The deck</a>
-            <a href="/about" class="hover:underline">About me</a>
-            <a href="/compliance" class="hover:underline">Compliance statement</a>
-            <a href="/privacy" class="hover:underline">Privacy policy</a>
+            <a href="/projects" class="hover:underline">Projects</a>
+            <a href="/tools" class="hover:underline">Tools</a>
+            <a href="/clocks" class="hover:underline">Clocks</a>
+            <a href="/contact" class="hover:underline">Contact</a>
+            <a href="/about" class="hover:underline">About</a>
           </div>
           <div class="flex gap-6">
             <a href="https://instagram.com/the_yadu" target="_blank" rel="noopener" class="hover:text-blue-400">Instagram</a>

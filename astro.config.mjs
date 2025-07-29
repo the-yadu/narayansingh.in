@@ -9,6 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://narayansingh.in', // Add your actual site URL here
   output: 'static',
   integrations: [tailwind(), react(), mdx(), sitemap()],
 });
