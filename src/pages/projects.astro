@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 
 const projects = [
   {
+    icon: '👍',
+    name: 'Like This',
+    desc: 'A platform to discover and share the things you love — products, places, ideas, and more.',
+    link: 'https://likethis.narayansingh.in/',
+    color: 'text-blue-500',
+  },
+  {
     icon: '🏍️',
     name: 'Manage my rides',
     desc: 'A platform to organize and track motorcycle rides.',
@@ -117,6 +124,7 @@ const projects = [
           style="text-decoration: none;"
           data-name={p.name.toLowerCase()}
           data-desc={p.desc.toLowerCase()}
+          {...(p.link?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
           <div class="flex items-center gap-3 mb-2">
             <span class={`${p.color} text-2xl`}>{p.icon}</span>
