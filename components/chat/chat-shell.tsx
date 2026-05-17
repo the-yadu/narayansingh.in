@@ -14,6 +14,7 @@ import type { Message } from "ai";
 
 export function ChatShell({ conversationId, starter }: { conversationId: string; starter?: string }) {
   const [starterSent, setStarterSent] = useState(false);
+  const [shareStatus, setShareStatus] = useState<"idle" | "ok" | "error">("idle");
   const updateConversationMessages = useChatStore((s) => s.updateConversationMessages);
   const personalityMode = useChatStore((s) => s.personalityMode);
   const messagesRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,11 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
 
   useEffect(() => {
     updateConversationMessages(conversationId, messages as Message[]);
-    messagesRef.current?.scrollTo({ top: messagesRef.current.scrollHeight, behavior: "smooth" });
+    const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    messagesRef.current?.scrollTo({
+      top: messagesRef.current.scrollHeight,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
   }, [conversationId, messages, updateConversationMessages]);
 
   useEffect(() => {
@@ -45,8 +50,14 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
   );
 
   const shareConversation = async () => {
-    const transcript = messages.map((m) => `${m.role.toUpperCase()}: ${m.content}`).join("\n\n");
-    await navigator.clipboard.writeText(transcript);
+    try {
+      const transcript = messages.map((m) => `${m.role.toUpperCase()}: ${m.content}`).join("\n\n");
+      await navigator.clipboard.writeText(transcript);
+      setShareStatus("ok");
+    } catch {
+      setShareStatus("error");
+    }
+    window.setTimeout(() => setShareStatus("idle"), 1800);
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -65,6 +76,8 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Sparkles className="h-4 w-4 text-indigo-300" />
           <span>{personalityLabel[personalityMode]}</span>
+          {shareStatus === "ok" && <span className="text-xs text-emerald-300">Copied</span>}
+          {shareStatus === "error" && <span className="text-xs text-rose-300">Copy failed</span>}
         </div>
         <Button variant="ghost" size="icon" onClick={shareConversation} aria-label="Share conversation">
           <Copy className="h-4 w-4" />

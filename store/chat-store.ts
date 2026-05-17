@@ -15,9 +15,11 @@ type ChatState = {
   updateConversationMessages: (id: string, messages: Message[]) => void;
 };
 
+const MAX_CONVERSATION_TITLE_LENGTH = 52;
+
 const titleFromSeed = (seed?: string) => {
   if (!seed?.trim()) return "New conversation";
-  return seed.trim().slice(0, 52);
+  return seed.trim().slice(0, MAX_CONVERSATION_TITLE_LENGTH);
 };
 
 export const useChatStore = create<ChatState>()(

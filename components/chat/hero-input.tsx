@@ -10,6 +10,10 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
   const [value, setValue] = useState("");
 
   const glowClass = useMemo(() => (value.trim() ? "ring-2 ring-primary/55" : "ring-1 ring-white/15"), [value]);
+  const voiceSupported = useMemo(
+    () => typeof window !== "undefined" && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window),
+    [],
+  );
 
   const submit = () => {
     const v = value.trim();
@@ -19,7 +23,7 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
   };
 
   const handleVoice = () => {
-    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) return;
+    if (!voiceSupported) return;
     const RecognitionCtor = window.webkitSpeechRecognition || window.SpeechRecognition;
     if (!RecognitionCtor) return;
     const recognition = new RecognitionCtor();
@@ -53,7 +57,15 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
         placeholder="Ask Narayan AI about startups, engineering, systems, travel, or life..."
         className="h-14 border-0 bg-transparent text-base shadow-none focus-visible:ring-0"
       />
-      <Button size="icon" variant="ghost" className="rounded-2xl text-muted-foreground" onClick={handleVoice} aria-label="Voice input">
+      <Button
+        size="icon"
+        variant="ghost"
+        className="rounded-2xl text-muted-foreground"
+        onClick={handleVoice}
+        disabled={!voiceSupported}
+        aria-label="Voice input"
+        title={voiceSupported ? "Use voice input" : "Voice input is unavailable in this browser"}
+      >
         <Mic className="h-4 w-4" />
       </Button>
       <Button size="icon" onClick={submit} className="rounded-2xl" aria-label="Send message">

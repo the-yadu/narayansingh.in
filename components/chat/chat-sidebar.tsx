@@ -8,6 +8,8 @@ import { useChatStore } from "@/store/chat-store";
 import type { PersonalityMode } from "@/types/chat";
 import { cn } from "@/lib/utils";
 
+const MAX_VISIBLE_CONVERSATIONS = 6;
+
 const modes: { id: PersonalityMode; label: string }[] = [
   { id: "founder", label: "Founder" },
   { id: "systems", label: "Systems" },
@@ -34,7 +36,7 @@ export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
       </div>
 
       <div className="space-y-2">
-        {conversations.slice(0, 6).map((conversation) => (
+        {conversations.slice(0, MAX_VISIBLE_CONVERSATIONS).map((conversation) => (
           <button
             key={conversation.id}
             onClick={() => setActiveConversation(conversation.id)}
