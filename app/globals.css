@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/theme.css";
+
+:root {
+  --background: 226 37% 7%;
+  --foreground: 220 12% 95%;
+  --card: 226 32% 11%;
+  --card-foreground: 220 12% 95%;
+  --muted: 223 21% 17%;
+  --muted-foreground: 220 10% 69%;
+  --border: 224 25% 22%;
+  --primary: 231 100% 72%;
+  --ring: 232 100% 72%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(85, 120, 255, 0.16), transparent 38%),
+    radial-gradient(circle at 80% 30%, rgba(0, 198, 255, 0.09), transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.12), transparent 45%),
+    linear-gradient(140deg, #05070f 0%, #090d1a 45%, #080914 100%);
+  overflow-x: hidden;
+}
+
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(138, 147, 255, 0.4) transparent;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(138, 147, 255, 0.35);
+  border-radius: 99px;
+}
+
+.prose pre {
+  @apply rounded-xl border border-white/10 bg-black/40 p-4;
+}
+
+.prose code {
+  @apply rounded bg-white/10 px-1.5 py-0.5 text-[0.9em];
+}

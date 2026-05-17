@@ -1,21 +1,46 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
+  darkMode: ["class"],
   content: [
-    "./src/**/*.{astro,html,js,jsx,ts,tsx}",
-    "./public/**/*.html"
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: "#3b82f6",
-        secondary: "#f000b8",
-        accent: "#1dcdbc",
-        neutral: "#2b3440",
-        dark: "#1f2937",
-        light: "#f8f9fa",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        border: "hsl(var(--border))",
+        primary: "hsl(var(--primary))",
+        ring: "hsl(var(--ring))",
+      },
+      boxShadow: {
+        glow: "0 0 40px rgba(119, 126, 255, 0.25)",
+      },
+      animation: {
+        float: "float 8s ease-in-out infinite",
+        pulseSlow: "pulseSlow 6s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        pulseSlow: {
+          "0%, 100%": { opacity: "0.2" },
+          "50%": { opacity: "0.35" },
+        },
       },
     },
   },
   plugins: [],
 };
+
+export default config;

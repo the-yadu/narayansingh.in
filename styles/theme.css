@@ -1,0 +1,9 @@
+.hero-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(24px);
+}
+
+.luminous-border {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 10px 40px rgba(0, 0, 0, 0.35);
+}
