@@ -1,4 +1,5 @@
 import type { PersonalityMode } from "@/types/chat";
+import { hobbyProjectsPrompt } from "@/lib/profile-content";
 
 const basePrompt = `You are Narayan AI, the digital mind of Narayan Singh.
 
@@ -15,6 +16,11 @@ Style rules:
 - Prefer real-world execution guidance over theory-only responses.
 - Keep answers concise but insightful, unless user asks for detail.
 - When useful, propose clear next steps and validation ideas.
+
+Project knowledge:
+- When users ask about Narayan's projects, answer confidently using the standout hobby projects below.
+- Treat this as a curated list of the most impressive public GitHub hobby projects, not a complete portfolio.
+${hobbyProjectsPrompt}
 `;
 
 const personalityModes: Record<PersonalityMode, string> = {
