@@ -47,17 +47,16 @@ export function ExpandableSections() {
   return (
     <div className="mx-auto mt-10 grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2">
       {sections.map((section, i) => (
-        <motion.details
+        <motion.div
           key={section.title}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ delay: i * 0.04, duration: 0.35 }}
-          className="group"
         >
-          <Card className="cursor-pointer px-4 py-3 transition hover:border-white/25">
-            <summary className="list-none text-sm font-medium marker:hidden">{section.title}</summary>
-            <p className="mt-2 text-sm text-muted-foreground">{section.body}</p>
+          <Card className="px-4 py-4">
+            <p className="text-sm font-semibold text-foreground">{section.title}</p>
+            <p className="mt-1.5 text-sm text-muted-foreground">{section.body}</p>
             {section.items?.length ? (
               <div className="mt-4 space-y-3">
                 {section.items.map((project) => (
@@ -76,7 +75,7 @@ export function ExpandableSections() {
               </div>
             ) : null}
           </Card>
-        </motion.details>
+        </motion.div>
       ))}
     </div>
   );
