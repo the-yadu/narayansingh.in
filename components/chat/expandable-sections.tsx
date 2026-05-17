@@ -2,9 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import type { HobbyProject } from "@/lib/profile-content";
 import { hobbyProjects } from "@/lib/profile-content";
 
-const sections = [
+type Section = {
+  title: string;
+  body: string;
+  items?: HobbyProject[];
+};
+
+const sections: Section[] = [
   {
     title: "About Narayan",
     body: "Senior engineer and founder-minded builder focused on useful AI-native products, robust systems, and real-world outcomes.",
