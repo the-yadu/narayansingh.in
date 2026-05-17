@@ -65,7 +65,7 @@ export function ExpandableSections() {
                     key={project.name}
                     href={project.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="block rounded-xl border border-white/10 bg-white/5 px-3 py-3 transition hover:border-white/20 hover:bg-white/[0.08]"
                   >
                     <p className="text-sm font-medium text-foreground">{project.name}</p>
