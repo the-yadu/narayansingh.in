@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useMemo, useState } from "react";
+import { KeyboardEvent, useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Mic, Paperclip } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,11 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
   const [value, setValue] = useState("");
 
   const glowClass = useMemo(() => (value.trim() ? "ring-2 ring-primary/45 shadow-[0_0_50px_rgba(96,165,250,0.15)]" : "ring-1 ring-white/12"), [value]);
-  const voiceSupported = useMemo(
-    () => typeof window !== "undefined" && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window),
-    [],
-  );
+  const [voiceSupported, setVoiceSupported] = useState(false);
+
+  useEffect(() => {
+    setVoiceSupported(typeof window !== "undefined" && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window));
+  }, []);
 
   const submit = () => {
     const v = value.trim();
