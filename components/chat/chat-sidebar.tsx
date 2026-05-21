@@ -16,13 +16,14 @@ const modes: { id: PersonalityMode; label: string; hint: string }[] = [
   { id: "mentor", label: "Mentor", hint: "clarity and guidance" },
 ];
 
-const formatTimestamp = (value: number) =>
-  new Intl.DateTimeFormat("en", {
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(value);
+const timestampFormatter = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  hour: "numeric",
+  minute: "2-digit",
+});
+
+const formatTimestamp = (value: number) => timestampFormatter.format(value);
 
 export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
   const conversations = useChatStore((s) => s.conversations);

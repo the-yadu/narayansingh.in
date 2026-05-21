@@ -102,7 +102,7 @@ export default function HomePage() {
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/7 px-4 py-2 text-sm text-white/72 backdrop-blur-xl">
                   <Wand2 className="h-4 w-4 text-cyan-300" />
-                  Ask anything about Narayan&apos;s work, thinking, products, and life
+                  Ask anything about Narayan's work, thinking, products, and life
                 </div>
 
                 <div className="space-y-5">

@@ -4,12 +4,17 @@ import { KeyboardEvent, useMemo, useState } from "react";
 import { ArrowUpRight, Mic, Paperclip } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useMounted } from "@/hooks/use-local-storage";
 
 export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
+  const mounted = useMounted();
   const [value, setValue] = useState("");
 
   const glowClass = useMemo(() => (value.trim() ? "ring-2 ring-primary/45 shadow-[0_0_50px_rgba(96,165,250,0.15)]" : "ring-1 ring-white/12"), [value]);
-  const voiceSupported = typeof window !== "undefined" && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window);
+  const voiceSupported = useMemo(
+    () => mounted && typeof window !== "undefined" && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window),
+    [mounted],
+  );
 
   const submit = () => {
     const v = value.trim();
@@ -71,8 +76,9 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
             variant="ghost"
             className="rounded-2xl text-white/55 hover:text-white"
             onClick={handleVoice}
+            disabled={!voiceSupported}
             aria-label="Voice input"
-            title="Voice input"
+            title={voiceSupported ? "Use voice input" : "Voice input is unavailable in this browser"}
           >
             <Mic className="h-4 w-4" />
           </Button>
