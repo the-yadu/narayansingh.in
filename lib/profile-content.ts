@@ -1,11 +1,11 @@
-export type GitHubProject = {
+export type HobbyProject = {
   name: string;
   href: string;
   tagline: string;
   summary: string;
 };
 
-export const githubProjects: GitHubProject[] = [
+export const hobbyProjects: HobbyProject[] = [
   {
     name: "Lekh Webapp",
     href: "https://github.com/the-yadu/lekh-webapp",
@@ -79,7 +79,7 @@ export const githubProjects: GitHubProject[] = [
   {
     name: "the-yadu profile",
     href: "https://github.com/the-yadu/the-yadu",
-    tagline: "GitHub profile README repository",
+    tagline: "Profile README repository",
     summary:
       "The special profile repository that powers the public GitHub bio, current focus areas, and profile-level social links.",
   },
@@ -106,7 +106,7 @@ export const githubProjects: GitHubProject[] = [
   },
 ];
 
-export const githubProjectsPrompt = githubProjects
+export const hobbyProjectsPrompt = hobbyProjects
   .map(
     (project) =>
       `- ${project.name}: ${project.tagline}. ${project.summary} Repository: ${project.href}`,

@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 const prompts = [
   "Help me validate a startup idea",
   "How would you build a mobility startup?",
-  "What GitHub projects should I know about?",
+  "Which personal hobby projects are you most proud of?",
   "What’s your engineering philosophy?",
   "How do you balance tech and life?",
   "Plan a Europe family trip",

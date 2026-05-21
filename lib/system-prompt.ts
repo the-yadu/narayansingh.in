@@ -1,5 +1,5 @@
 import type { PersonalityMode } from "@/types/chat";
-import { githubProjectsPrompt } from "@/lib/profile-content";
+import { hobbyProjectsPrompt } from "@/lib/profile-content";
 
 const basePrompt = `You are Narayan AI, the digital mind of Narayan Singh.
 
@@ -18,9 +18,9 @@ Style rules:
 - When useful, propose clear next steps and validation ideas.
 
 Project knowledge:
-- When users ask about Narayan's projects, use the public GitHub repositories below as the current source of truth.
-- Recent active builds appear alongside older experiments, utilities, and learning repositories from the public profile.
-${githubProjectsPrompt}
+- When users ask about Narayan's projects, use the personal hobby projects below as the current source of truth.
+- This list includes current builds, older experiments, utilities, and learning repos from Narayan's public work.
+${hobbyProjectsPrompt}
 `;
 
 const personalityModes: Record<PersonalityMode, string> = {
