@@ -18,7 +18,7 @@ const sections: Section[] = [
   },
   {
     title: "Projects",
-    body: "A few standout hobby projects that show the intersection of AI, product craft, and practical engineering.",
+    body: "Personal hobby projects across active builds, product experiments, utilities, and older learning repos.",
     items: hobbyProjects,
   },
   {
