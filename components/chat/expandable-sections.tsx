@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import type { HobbyProject } from "@/lib/profile-content";
-import { hobbyProjects } from "@/lib/profile-content";
+import type { GitHubProject } from "@/lib/profile-content";
+import { githubProjects } from "@/lib/profile-content";
 
 type Section = {
   title: string;
   body: string;
-  items?: HobbyProject[];
+  items?: GitHubProject[];
 };
 
 const sections: Section[] = [
@@ -18,8 +18,8 @@ const sections: Section[] = [
   },
   {
     title: "Projects",
-    body: "A few standout hobby projects that show the intersection of AI, product craft, and practical engineering.",
-    items: hobbyProjects,
+    body: "Public GitHub projects across active builds, product experiments, utilities, and older learning repos.",
+    items: githubProjects,
   },
   {
     title: "AI Experiments",
