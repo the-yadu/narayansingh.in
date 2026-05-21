@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, Plus, Sparkles } from "lucide-react";
+import { Bot, Clock3, MessageSquareDashed, Plus, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useChatStore } from "@/store/chat-store";
@@ -10,11 +10,19 @@ import { cn } from "@/lib/utils";
 
 const MAX_VISIBLE_CONVERSATIONS = 6;
 
-const modes: { id: PersonalityMode; label: string }[] = [
-  { id: "founder", label: "Founder" },
-  { id: "systems", label: "Systems" },
-  { id: "mentor", label: "Mentor" },
+const modes: { id: PersonalityMode; label: string; hint: string }[] = [
+  { id: "founder", label: "Founder", hint: "strategy and products" },
+  { id: "systems", label: "Systems", hint: "architecture and trade-offs" },
+  { id: "mentor", label: "Mentor", hint: "clarity and guidance" },
 ];
+
+const formatTimestamp = (value: number) =>
+  new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(value);
 
 export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
   const conversations = useChatStore((s) => s.conversations);
@@ -24,61 +32,79 @@ export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
   const setPersonalityMode = useChatStore((s) => s.setPersonalityMode);
 
   return (
-    <Card className="w-full space-y-4 p-4 lg:w-72 lg:min-w-72">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-sm font-medium">
-          <Bot className="h-4 w-4 text-indigo-300" />
-          Sessions
+    <Card className="w-full rounded-[2rem] border-white/10 bg-white/[0.035] p-4 lg:sticky lg:top-6 lg:w-[320px] lg:min-w-[320px] lg:self-start">
+      <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <p className="flex items-center gap-2 text-sm font-medium text-white">
+            <Bot className="h-4 w-4 text-cyan-200" />
+            Conversation space
+          </p>
+          <p className="mt-1 text-xs text-white/45">Switch sessions or reset back to the landing experience.</p>
         </div>
-        <Button size="icon" variant="ghost" onClick={onNewChat} aria-label="New conversation">
+        <Button size="icon" variant="ghost" onClick={onNewChat} aria-label="New conversation" className="rounded-2xl">
           <Plus className="h-4 w-4" />
         </Button>
       </div>
 
-      <div className="space-y-2">
-        {conversations.slice(0, MAX_VISIBLE_CONVERSATIONS).map((conversation) => (
-          <button
-            key={conversation.id}
-            onClick={() => setActiveConversation(conversation.id)}
-            className={cn(
-              "w-full rounded-xl border px-3 py-2 text-left text-xs transition",
-              activeConversationId === conversation.id
-                ? "border-primary/50 bg-primary/15 text-foreground"
-                : "border-white/10 bg-white/5 text-muted-foreground hover:text-foreground",
-            )}
-          >
-            <p className="truncate font-medium">{conversation.title}</p>
-            <p className="mt-1 text-[11px] opacity-70">{new Date(conversation.updatedAt).toLocaleString()}</p>
-          </button>
-        ))}
+      <div className="mt-5 space-y-2">
+        <p className="text-xs uppercase tracking-[0.24em] text-white/35">Recent chats</p>
+        {conversations.length ? (
+          conversations.slice(0, MAX_VISIBLE_CONVERSATIONS).map((conversation) => (
+            <button
+              key={conversation.id}
+              onClick={() => setActiveConversation(conversation.id)}
+              className={cn(
+                "w-full rounded-[1.35rem] border px-4 py-3 text-left transition",
+                activeConversationId === conversation.id
+                  ? "border-primary/40 bg-primary/12 text-white shadow-[0_15px_40px_rgba(79,70,229,0.12)]"
+                  : "border-white/10 bg-white/[0.035] text-white/58 hover:border-white/20 hover:text-white",
+              )}
+            >
+              <p className="truncate text-sm font-medium">{conversation.title}</p>
+              <div className="mt-2 flex items-center gap-2 text-[11px] text-white/40">
+                <Clock3 className="h-3.5 w-3.5" />
+                {formatTimestamp(conversation.updatedAt)}
+              </div>
+            </button>
+          ))
+        ) : (
+          <div className="rounded-[1.35rem] border border-dashed border-white/10 bg-white/[0.025] p-4 text-sm text-white/45">
+            Your first conversation will appear here.
+          </div>
+        )}
       </div>
 
-      <div className="space-y-2 pt-1">
-        <p className="text-xs text-muted-foreground">Personality</p>
-        <div className="grid grid-cols-3 gap-2">
+      <div className="mt-6 space-y-3 border-t border-white/10 pt-5">
+        <p className="text-xs uppercase tracking-[0.24em] text-white/35">Response style</p>
+        <div className="space-y-2">
           {modes.map((mode) => (
             <motion.button
-              whileTap={{ scale: 0.96 }}
+              whileTap={{ scale: 0.98 }}
               key={mode.id}
               onClick={() => setPersonalityMode(mode.id)}
               className={cn(
-                "rounded-lg border px-2 py-1.5 text-xs",
+                "w-full rounded-[1.35rem] border px-4 py-3 text-left transition",
                 personalityMode === mode.id
-                  ? "border-primary/60 bg-primary/15 text-foreground"
-                  : "border-white/10 bg-white/5 text-muted-foreground",
+                  ? "border-primary/40 bg-primary/12 text-white"
+                  : "border-white/10 bg-white/[0.035] text-white/58 hover:border-white/20 hover:text-white",
               )}
             >
-              {mode.label}
+              <p className="text-sm font-medium">{mode.label}</p>
+              <p className="mt-1 text-xs text-white/42">{mode.hint}</p>
             </motion.button>
           ))}
         </div>
       </div>
 
-      <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-muted-foreground">
-        <p className="flex items-center gap-2 text-foreground">
-          <Sparkles className="h-3.5 w-3.5 text-indigo-300" /> AI Memory Simulation
+      <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-sm text-white/52">
+        <p className="flex items-center gap-2 text-white">
+          <Sparkles className="h-4 w-4 text-cyan-200" /> Local memory simulation
         </p>
-        <p className="mt-1">Your sessions stay locally in this browser and can be resumed anytime.</p>
+        <p className="mt-2 leading-6">Sessions are stored in this browser so you can return to previous chats without leaving the interface.</p>
+        <div className="mt-3 flex items-center gap-2 text-xs text-white/40">
+          <MessageSquareDashed className="h-3.5 w-3.5" />
+          Resume anytime from this device
+        </div>
       </div>
     </Card>
   );
