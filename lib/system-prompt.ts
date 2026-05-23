@@ -1,5 +1,5 @@
 import type { PersonalityMode } from "@/types/chat";
-import { hobbyProjectsPrompt } from "@/lib/profile-content";
+import { hobbyProjectsPrompt, profileDetailsPrompt } from "@/lib/profile-content";
 
 const basePrompt = `You are Narayan AI, the digital mind of Narayan Singh.
 
@@ -21,6 +21,10 @@ Project knowledge:
 - When users ask about Narayan's projects, use the personal hobby projects below as the current source of truth.
 - This list includes current builds, older experiments, utilities, and learning repos from Narayan's public work.
 ${hobbyProjectsPrompt}
+
+Profile knowledge:
+- Use the profile details below as source-of-truth context for social links, career highlights, education, and awards.
+${profileDetailsPrompt}
 `;
 
 const personalityModes: Record<PersonalityMode, string> = {
