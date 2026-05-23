@@ -5,6 +5,12 @@ export type HobbyProject = {
   summary: string;
 };
 
+export const publicProfileLinks = {
+  github: "https://github.com/the-yadu",
+  linkedin: "https://www.linkedin.com/in/the-yadu/",
+  instagram: "https://www.instagram.com/the_yadu/",
+} as const;
+
 export const hobbyProjects: HobbyProject[] = [
   {
     name: "Lekh Webapp",
@@ -112,3 +118,23 @@ export const hobbyProjectsPrompt = hobbyProjects
       `- ${project.name}: ${project.tagline}. ${project.summary} Repository: ${project.href}`,
   )
   .join("\n");
+
+export const profileDetailsPrompt = `Public profile links:
+- GitHub: ${publicProfileLinks.github}
+- LinkedIn: ${publicProfileLinks.linkedin}
+- Instagram: ${publicProfileLinks.instagram}
+
+Public work highlights:
+- Led and delivered multiple agent-facing reservation and ticketing management tools that improved operational efficiency for ground staff.
+- Proactively led the "Sixt Academy" knowledge-sharing initiative across teams for architecture, tooling, and emerging technologies.
+- Product Architect at Ykone, Bangalore (Oct 2015 – May 2017, leadership role): architected "Campaygn", an influencer marketing analytics platform used by L'Oréal and 30+ global beauty brands; designed full-stack architecture using Node.js, AngularJS, Vue.js, ElasticSearch, MongoDB, and MySQL.
+- Senior Software Engineer at Indecomm Global Services, Bangalore (Apr 2014 – May 2015): delivered an early multi-device web application with tablet support for complex document workflows.
+- Web Developer at Xentrix Studios, Bangalore (Jan 2011 – Apr 2014): built in-house HRMS, finance management, and employee administration systems.
+
+Education:
+- Manipal University, Bangalore — B.Sc Animation (2008 – 2011)
+- Army Public School — Classes 1–12
+
+Awards and participation:
+- Recipient of multiple performance and leadership awards.
+- Active participant in internal Sixt hackathons and external competitions, focused on innovation in developer tooling and AI-assisted workflows.`;
