@@ -15,27 +15,28 @@ const config = {
         foreground: "hsl(var(--foreground))",
         card: "hsl(var(--card))",
         "card-foreground": "hsl(var(--card-foreground))",
+        "card-hover": "hsl(var(--card-hover))",
         muted: "hsl(var(--muted))",
         "muted-foreground": "hsl(var(--muted-foreground))",
+        "subtle-foreground": "hsl(var(--subtle-foreground))",
         border: "hsl(var(--border))",
+        "border-strong": "hsl(var(--border-strong))",
         primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
         ring: "hsl(var(--ring))",
       },
-      boxShadow: {
-        glow: "0 0 40px rgba(119, 126, 255, 0.25)",
+      borderRadius: {
+        xl: "0.875rem",
+        "2xl": "1.125rem",
+        "3xl": "1.5rem",
       },
       animation: {
-        float: "float 8s ease-in-out infinite",
         pulseSlow: "pulseSlow 6s ease-in-out infinite",
       },
       keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
         pulseSlow: {
-          "0%, 100%": { opacity: "0.2" },
-          "50%": { opacity: "0.35" },
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "0.9" },
         },
       },
     },

@@ -33,50 +33,50 @@ export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
   const setPersonalityMode = useChatStore((s) => s.setPersonalityMode);
 
   return (
-    <Card className="w-full rounded-[2rem] border-white/10 bg-white/[0.035] p-4 lg:sticky lg:top-6 lg:w-[320px] lg:min-w-[320px] lg:self-start">
-      <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+    <Card className="w-full rounded-3xl p-4 lg:sticky lg:top-6 lg:w-[320px] lg:min-w-[320px] lg:self-start">
+      <div className="flex items-center justify-between gap-3 border-b border-border pb-4">
         <div>
-          <p className="flex items-center gap-2 text-sm font-medium text-white">
-            <Bot className="h-4 w-4 text-cyan-200" />
+          <p className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <Bot className="h-4 w-4 text-primary" />
             Conversation space
           </p>
-          <p className="mt-1 text-xs text-white/45">Switch sessions or reset back to the landing experience.</p>
+          <p className="mt-1 text-xs text-subtle-foreground">Switch sessions or reset back to the landing experience.</p>
         </div>
-        <Button size="icon" variant="ghost" onClick={onNewChat} aria-label="New conversation" className="rounded-2xl">
+        <Button size="icon" variant="ghost" onClick={onNewChat} aria-label="New conversation" className="rounded-xl">
           <Plus className="h-4 w-4" />
         </Button>
       </div>
 
       <div className="mt-5 space-y-2">
-        <p className="text-xs uppercase tracking-[0.24em] text-white/35">Recent chats</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-subtle-foreground">Recent chats</p>
         {conversations.length ? (
           conversations.slice(0, MAX_VISIBLE_CONVERSATIONS).map((conversation) => (
             <button
               key={conversation.id}
               onClick={() => setActiveConversation(conversation.id)}
               className={cn(
-                "w-full rounded-[1.35rem] border px-4 py-3 text-left transition",
+                "w-full rounded-xl border px-4 py-3 text-left transition-colors",
                 activeConversationId === conversation.id
-                  ? "border-primary/40 bg-primary/12 text-white shadow-[0_15px_40px_rgba(79,70,229,0.12)]"
-                  : "border-white/10 bg-white/[0.035] text-white/58 hover:border-white/20 hover:text-white",
+                  ? "border-primary/50 bg-primary/10 text-foreground"
+                  : "border-border bg-transparent text-muted-foreground hover:border-border-strong hover:bg-card-hover hover:text-foreground",
               )}
             >
               <p className="truncate text-sm font-medium">{conversation.title}</p>
-              <div className="mt-2 flex items-center gap-2 text-[11px] text-white/40">
+              <div className="mt-2 flex items-center gap-2 text-[11px] text-subtle-foreground">
                 <Clock3 className="h-3.5 w-3.5" />
                 {formatTimestamp(conversation.updatedAt)}
               </div>
             </button>
           ))
         ) : (
-          <div className="rounded-[1.35rem] border border-dashed border-white/10 bg-white/[0.025] p-4 text-sm text-white/45">
+          <div className="rounded-xl border border-dashed border-border p-4 text-sm text-subtle-foreground">
             Your first conversation will appear here.
           </div>
         )}
       </div>
 
-      <div className="mt-6 space-y-3 border-t border-white/10 pt-5">
-        <p className="text-xs uppercase tracking-[0.24em] text-white/35">Response style</p>
+      <div className="mt-6 space-y-3 border-t border-border pt-5">
+        <p className="text-xs uppercase tracking-[0.2em] text-subtle-foreground">Response style</p>
         <div className="space-y-2">
           {modes.map((mode) => (
             <motion.button
@@ -84,25 +84,25 @@ export function ChatSidebar({ onNewChat }: { onNewChat: () => void }) {
               key={mode.id}
               onClick={() => setPersonalityMode(mode.id)}
               className={cn(
-                "w-full rounded-[1.35rem] border px-4 py-3 text-left transition",
+                "w-full rounded-xl border px-4 py-3 text-left transition-colors",
                 personalityMode === mode.id
-                  ? "border-primary/40 bg-primary/12 text-white"
-                  : "border-white/10 bg-white/[0.035] text-white/58 hover:border-white/20 hover:text-white",
+                  ? "border-primary/50 bg-primary/10 text-foreground"
+                  : "border-border bg-transparent text-muted-foreground hover:border-border-strong hover:bg-card-hover hover:text-foreground",
               )}
             >
               <p className="text-sm font-medium">{mode.label}</p>
-              <p className="mt-1 text-xs text-white/42">{mode.hint}</p>
+              <p className="mt-1 text-xs text-subtle-foreground">{mode.hint}</p>
             </motion.button>
           ))}
         </div>
       </div>
 
-      <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-sm text-white/52">
-        <p className="flex items-center gap-2 text-white">
-          <Sparkles className="h-4 w-4 text-cyan-200" /> Local memory simulation
+      <div className="surface-inset mt-6 rounded-xl p-4 text-sm text-muted-foreground">
+        <p className="flex items-center gap-2 text-foreground">
+          <Sparkles className="h-4 w-4 text-primary" /> Local memory simulation
         </p>
         <p className="mt-2 leading-6">Sessions are stored in this browser so you can return to previous chats without leaving the interface.</p>
-        <div className="mt-3 flex items-center gap-2 text-xs text-white/40">
+        <div className="mt-3 flex items-center gap-2 text-xs text-subtle-foreground">
           <MessageSquareDashed className="h-3.5 w-3.5" />
           Resume anytime from this device
         </div>
