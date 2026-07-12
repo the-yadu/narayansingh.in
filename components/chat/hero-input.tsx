@@ -10,8 +10,8 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
   const mounted = useMounted();
   const [value, setValue] = useState("");
 
-  const glowClass = useMemo(
-    () => (value.trim() ? "ring-2 ring-primary/50 shadow-[0_0_50px_rgba(96,165,250,0.17)]" : "ring-1 ring-white/12"),
+  const focusClass = useMemo(
+    () => (value.trim() ? "border-primary/60 ring-2 ring-ring/30" : "border-border"),
     [value],
   );
   const voiceSupported = useMemo(
@@ -48,7 +48,7 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
 
   return (
     <motion.div
-      className={`hero-glass luminous-border overflow-hidden rounded-[1.75rem] bg-black/25 p-3 sm:p-4 ${glowClass}`}
+      className={`overflow-hidden rounded-2xl border bg-card p-3 transition-colors sm:p-4 ${focusClass}`}
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: 0.1 }}
@@ -59,20 +59,20 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
         onKeyDown={handleKeyDown}
         rows={3}
         placeholder="Message Narayan AI..."
-        className="min-h-[108px] w-full resize-none border-0 bg-transparent px-2 py-2 text-base leading-7 text-white outline-none placeholder:text-white/35"
+        className="min-h-[108px] w-full resize-none border-0 bg-transparent px-2 py-2 text-base leading-7 text-foreground outline-none placeholder:text-subtle-foreground"
       />
 
-      <div className="mt-3 flex items-center justify-between border-t border-white/10 px-1 pt-3">
-        <div className="flex items-center gap-2 text-xs text-white/45">
-          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Enter to send</span>
-          <span className="hidden rounded-full border border-white/10 bg-white/5 px-3 py-1.5 sm:inline-flex">Shift + Enter for newline</span>
+      <div className="mt-3 flex items-center justify-between border-t border-border px-1 pt-3">
+        <div className="flex items-center gap-2 text-xs text-subtle-foreground">
+          <span className="rounded-full border border-border bg-background/40 px-3 py-1.5">Enter to send</span>
+          <span className="hidden rounded-full border border-border bg-background/40 px-3 py-1.5 sm:inline-flex">Shift + Enter for newline</span>
         </div>
 
         <div className="flex items-center gap-2">
           <Button
             size="icon"
             variant="ghost"
-            className="rounded-2xl text-white/55 hover:text-white"
+            className="rounded-xl"
             onClick={handleVoice}
             disabled={!voiceSupported}
             aria-label="Voice input"
@@ -80,7 +80,7 @@ export function HeroInput({ onSend }: { onSend: (value: string) => void }) {
           >
             <Mic className="h-4 w-4" />
           </Button>
-          <Button onClick={submit} className="rounded-2xl px-4" aria-label="Send message">
+          <Button onClick={submit} className="rounded-xl px-4" aria-label="Send message">
             Start chat
             <ArrowUpRight className="ml-2 h-4 w-4" />
           </Button>

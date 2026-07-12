@@ -79,36 +79,35 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
     >
-      <div className="hero-panel flex flex-col gap-4 rounded-[2rem] p-4 sm:p-5">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="surface-raised flex flex-col gap-4 rounded-3xl p-4 sm:p-5">
+        <div className="flex flex-col gap-4 border-b border-border pb-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <div className="flex items-center gap-2 text-sm text-cyan-200/85">
+            <div className="flex items-center gap-2 text-sm text-primary">
               <Sparkles className="h-4 w-4" />
               {modeDetails.title}
             </div>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">Conversation with Narayan AI</h2>
-            <p className="mt-1 text-sm leading-6 text-white/54">{modeDetails.detail}</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">Conversation with Narayan AI</h2>
+            <p className="mt-1 text-sm leading-6 text-muted-foreground">{modeDetails.detail}</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/54">
+            <div className="rounded-full border border-border bg-background/40 px-3 py-1.5 text-xs text-muted-foreground">
               {messages.length} message{messages.length === 1 ? "" : "s"}
             </div>
-            <Button variant="ghost" onClick={shareConversation} aria-label="Share conversation" className="rounded-2xl px-3 text-white/72 hover:text-white">
+            <Button variant="ghost" onClick={shareConversation} aria-label="Share conversation" className="rounded-xl px-3">
               <Copy className="mr-2 h-4 w-4" />
               Copy transcript
             </Button>
-            {shareStatus === "ok" && <span className="text-xs text-emerald-300">Copied</span>}
-            {shareStatus === "error" && <span className="text-xs text-rose-300">Copy failed</span>}
+            {shareStatus === "ok" && <span className="text-xs text-emerald-400">Copied</span>}
+            {shareStatus === "error" && <span className="text-xs text-rose-400">Copy failed</span>}
           </div>
         </div>
 
-        <div ref={messagesRef} className="chat-scroll relative min-h-[58vh] space-y-4 overflow-y-auto rounded-[1.75rem] border border-white/10 bg-black/20 p-4 sm:p-6">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/[0.03] to-transparent" />
+        <div ref={messagesRef} className="chat-scroll surface-inset relative min-h-[58vh] space-y-4 overflow-y-auto rounded-2xl p-4 sm:p-6">
           {messages.length === 0 && (
-            <div className="relative flex min-h-[42vh] flex-col items-center justify-center rounded-[1.5rem] border border-dashed border-white/10 bg-white/[0.025] px-6 text-center">
-              <p className="text-lg font-medium text-white">Start with a question to talk with Narayan AI.</p>
-              <p className="mt-2 max-w-xl text-sm leading-6 text-white/45">
+            <div className="relative flex min-h-[42vh] flex-col items-center justify-center rounded-xl border border-dashed border-border px-6 text-center">
+              <p className="text-lg font-medium text-foreground">Start with a question to talk with Narayan AI.</p>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-subtle-foreground">
                 Ask for product advice, engineering trade-offs, travel ideas, lessons from building, or a sharper view of the personal hobby projects.
               </p>
             </div>
@@ -119,7 +118,7 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
           {isLoading && <TypingIndicator />}
         </div>
 
-        <form onSubmit={onSubmit} className="rounded-[1.75rem] border border-white/10 bg-black/25 p-3">
+        <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-3">
           <textarea
             name="prompt"
             value={input}
@@ -127,14 +126,14 @@ export function ChatShell({ conversationId, starter }: { conversationId: string;
             onKeyDown={onComposerKeyDown}
             rows={3}
             placeholder="Continue the conversation..."
-            className="min-h-[92px] w-full resize-none border-0 bg-transparent px-2 py-2 text-base leading-7 text-white outline-none placeholder:text-white/35"
+            className="min-h-[92px] w-full resize-none border-0 bg-transparent px-2 py-2 text-base leading-7 text-foreground outline-none placeholder:text-subtle-foreground"
           />
-          <div className="mt-3 flex flex-col gap-3 border-t border-white/10 pt-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-2 text-xs text-white/42">
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Enter to send</span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Shift + Enter for newline</span>
+          <div className="mt-3 flex flex-col gap-3 border-t border-border pt-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2 text-xs text-subtle-foreground">
+              <span className="rounded-full border border-border bg-background/40 px-3 py-1.5">Enter to send</span>
+              <span className="rounded-full border border-border bg-background/40 px-3 py-1.5">Shift + Enter for newline</span>
             </div>
-            <Button type="submit" className="self-end rounded-2xl px-4 sm:self-auto" aria-label="Send">
+            <Button type="submit" className="self-end rounded-xl px-4 sm:self-auto" aria-label="Send">
               Send message
               <SendHorizonal className="ml-2 h-4 w-4" />
             </Button>

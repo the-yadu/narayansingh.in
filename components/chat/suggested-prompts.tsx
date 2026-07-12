@@ -18,7 +18,7 @@ export function SuggestedPrompts({ onSelect }: { onSelect: (prompt: string) => v
         <motion.button
           key={prompt}
           onClick={() => onSelect(prompt)}
-          className="rounded-full border border-white/12 bg-white/[0.045] px-3 py-2 text-left text-xs text-white/70 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white sm:text-sm"
+          className="rounded-full border border-border bg-background/40 px-3 py-2 text-left text-xs text-muted-foreground transition-colors hover:border-border-strong hover:bg-card-hover hover:text-foreground sm:text-sm"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.04 + i * 0.035, duration: 0.28 }}
